@@ -33,7 +33,12 @@ sum_steps <- aggregate(steps ~ date, data = actvt, FUN = sum)
 qplot(steps, data=sum_steps, main="Steps per Day", fill=I("blue"))
 ```
 
+mean and median of the total number of steps taken per day
 
+```{r Sum mean and median}
+mean(sum_steps$steps)
+median(sum_steps$steps)
+```
   
 ##Q2 : What is the average daily activity pattern?
   
@@ -109,3 +114,4 @@ p <- ggplot(stepsXtodXintvl, aes(x = interval, y = steps))
 p + geom_line(color="red") + facet_grid(. ~ typeofday) + ggtitle("Steps by Interval - Weekday vs Weekend")
 ```
 
+There's a distinct spike in early morning activity on weekdays.  Activity during the weekend is more evenly distributed throughout the day.
