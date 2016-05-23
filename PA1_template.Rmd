@@ -97,6 +97,7 @@ typeOfDay <- function(date){
 }
 actvt_replace_na$typeofday <- with(actvt_replace_na,{as.factor(sapply(date, typeOfDay))})
 ```
+
 2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data
 ```{r Panel plot}
 #find the mean by typeofday, and interval
