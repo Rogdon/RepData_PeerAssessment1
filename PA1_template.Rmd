@@ -1,10 +1,12 @@
 ---
 title: "Reproducible Research : Assignment #1"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,fig.width=6, fig.height=6, fig.show=TRUE,fig.path='Figs/')
 ```
 
 ## Loading the Data and Library
@@ -28,7 +30,7 @@ For this part of the assignment, ignore the missing values in the dataset
 1.Make a histogram of the total number of steps taken each day  
 --Aggregate 'steps' by date  
 --Plot 'Steps per Day' using qplot
-```{r Sum steps by Date}
+```{r Sum steps by Date, fig.keep='high'}
 sum_steps <- aggregate(steps ~ date, data = actvt, FUN = sum)
 qplot(steps, data=sum_steps, main="Steps per Day", fill=I("blue"))
 ```
@@ -43,7 +45,7 @@ median(sum_steps$steps)
 ##Q2 : What is the average daily activity pattern?
   
 1.Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
-```{r average daily pattern}
+```{r average daily pattern, fig.keep='high'}
 stepsXintvl <- aggregate(steps ~ interval, data = actvt, FUN = mean)
 p <- ggplot(stepsXintvl, aes(x = interval, y = steps))
 p + geom_line(color="blue") + ggtitle("Steps by Interval")
@@ -80,7 +82,7 @@ actvt_replace_na <- subset( actvt_replace_na, select = -steps_int_mean )
 
 4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r historgra total steps/day}
+```{r historgra total steps/day, fig.keep='high'}
 stepsXdate_imputed <- aggregate(steps ~ date, data=actvt_replace_na, FUN=sum)
 qplot(steps, data=stepsXdate_imputed, main="Steps per Day", fill=I("cyan"))
 mean(stepsXdate_imputed$steps)
@@ -105,7 +107,7 @@ actvt_replace_na$typeofday <- with(actvt_replace_na,{as.factor(sapply(date, type
 
 
 2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data
-```{r Panel plot}
+```{r Panel plot, fig.keep='high'}
 #find the mean by typeofday, and interval
 stepsXtodXintvl <- aggregate(actvt_replace_na$steps,list(typeofday=actvt_replace_na$typeofday,interval=actvt_replace_na$interval),mean)
 #rename steps

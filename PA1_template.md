@@ -43,7 +43,7 @@ qplot(steps, data=sum_steps, main="Steps per Day", fill=I("blue"))
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/Sum steps by Date-1.png)<!-- -->
+![](Figs/Sum steps by Date-1.png)<!-- -->
 
 mean and median of the total number of steps taken per day
 
@@ -74,7 +74,7 @@ p <- ggplot(stepsXintvl, aes(x = interval, y = steps))
 p + geom_line(color="blue") + ggtitle("Steps by Interval")
 ```
 
-![](PA1_template_files/figure-html/average daily pattern-1.png)<!-- -->
+![](Figs/average daily pattern-1.png)<!-- -->
   
 2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -136,7 +136,7 @@ qplot(steps, data=stepsXdate_imputed, main="Steps per Day", fill=I("cyan"))
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/historgra total steps/day-1.png)<!-- -->
+![](Figs/historgra total steps/day-1.png)<!-- -->
 
 ```r
 mean(stepsXdate_imputed$steps)
@@ -183,6 +183,6 @@ p <- ggplot(stepsXtodXintvl, aes(x = interval, y = steps))
 p + geom_line(color="red") + facet_grid(. ~ typeofday) + ggtitle("Steps by Interval - Weekday vs Weekend")
 ```
 
-![](PA1_template_files/figure-html/Panel plot-1.png)<!-- -->
+![](Figs/Panel plot-1.png)<!-- -->
 
 There's a distinct spike in early morning activity on weekdays.  Activity during the weekend is more evenly distributed throughout the day.
