@@ -82,7 +82,7 @@ actvt_replace_na <- subset( actvt_replace_na, select = -steps_int_mean )
 
 4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r historgra total steps/day, fig.keep='high'}
+```{r historgram total steps/day}
 stepsXdate_imputed <- aggregate(steps ~ date, data=actvt_replace_na, FUN=sum)
 qplot(steps, data=stepsXdate_imputed, main="Steps per Day", fill=I("cyan"))
 mean(stepsXdate_imputed$steps)

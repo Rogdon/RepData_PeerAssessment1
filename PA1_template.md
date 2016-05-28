@@ -136,7 +136,7 @@ qplot(steps, data=stepsXdate_imputed, main="Steps per Day", fill=I("cyan"))
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](Figs/historgra total steps/day-1.png)<!-- -->
+![](Figs/historgram total steps/day-1.png)<!-- -->
 
 ```r
 mean(stepsXdate_imputed$steps)
